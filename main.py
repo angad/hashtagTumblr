@@ -35,7 +35,7 @@ class tumblr(webapp.RequestHandler):
         while(i!=int(count)):
             quote = self.request.get('quote' + str(i+1))
             s = self.request.get('source' + str(i+1))
-            if(s==""):
+            if(quote==""):
                 self.response.out.write(s)
             else:
                 source = '<a href = "http://twitter.com/' + s + '">' + s + "</a>"
