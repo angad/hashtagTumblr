@@ -1,22 +1,42 @@
 <html>
 <head>
 	<style>
-	#tweet
+	.tweet
 	{
 		width:1000px;
 		font-size:16px;
 	}
-	#source{
+	.source{
 		width:60px;
 	}
 	</style>
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+	
+	<script>
+	$(document).ready(function(){
+		//Add tag
+		
+		var i =0;
+		var count = $(".count").val();
+		$(".delete").click(function(){
+			id = $(this).val();
+			selector = "div#tweet" + id + " .n";
+ 			n = $(selector).val();
+			$("div#result").load('/deletetweet', {n: n});
+			$(this).parent().remove();
+		});
+	});
+	</script>
+	
 	
 </head>
+
+
 
 <body>
 <form method = "post" action = "/tumblr">
 	Email <br/><input type = "text" name = "email"/><br/>
 	Password <br/><input type = "password" name = "password"/><br/>
 	Group <br/><input type = "text" name = "group"/>
-	<input type = "hidden" name = "count" value = "10"/>
 	<br/> <br/>

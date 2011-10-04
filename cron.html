@@ -1,0 +1,19 @@
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+	
+	<script>
+	$(document).ready(function(){
+		
+		//Add tag
+		$("div#post").click(function(){
+			var tag = $("div#addtag .tag").val()
+			if(tag == "") $("div#result").html("Tag should not be empty");
+			else $("div#result").load('/savetags', {tag: tag});
+		});
+	});
+	</script>
+</head>
+<body>
+		<div id = "addtag">Add Search Tag: <br/><input type ="text" class = "tag" name="tag" value = ""/></div>
